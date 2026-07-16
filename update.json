@@ -1,0 +1,39 @@
+{
+  "version": "0.7.17",
+  "notes": "See release notes",
+  "pub_date": "2026-07-16T21:29:02.903Z",
+  "platforms": {
+    "darwin-aarch64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRVUZJOGVERVJQU3hJbENYNEZMeTlxd0kybVZaNGRLKzNsUEliNlY5ay9idExFeEl3NjFXUS8wa1ZId01aYlkyV2Jadm9MTHJIMHduZWgyRjhCU3MyeHpweFA2RGc2elFRPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0MjM2NjQxCWZpbGU6U2VreW91ci5hcHAudGFyLmd6CnROaWNZSkRBanBlV1dCRGp3R01rZC9hUU9WRWJmN056Zm1mSUwvUjhIU3F2M3pUdjdVRlBsTnA4OUhTNk11RE9Ga2ZzY3duczl2aEZ2T3dpVTJ3VUF3PT0K",
+      "url": "https://github.com/codecraf8/sekyour-dl/releases/download/v0.7.17/Sekyour_aarch64.app.tar.gz"
+    },
+    "darwin-aarch64-app": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRVUZJOGVERVJQU3hJbENYNEZMeTlxd0kybVZaNGRLKzNsUEliNlY5ay9idExFeEl3NjFXUS8wa1ZId01aYlkyV2Jadm9MTHJIMHduZWgyRjhCU3MyeHpweFA2RGc2elFRPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0MjM2NjQxCWZpbGU6U2VreW91ci5hcHAudGFyLmd6CnROaWNZSkRBanBlV1dCRGp3R01rZC9hUU9WRWJmN056Zm1mSUwvUjhIU3F2M3pUdjdVRlBsTnA4OUhTNk11RE9Ga2ZzY3duczl2aEZ2T3dpVTJ3VUF3PT0K",
+      "url": "https://github.com/codecraf8/sekyour-dl/releases/download/v0.7.17/Sekyour_aarch64.app.tar.gz"
+    },
+    "darwin-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRVUZJOGVERVJQUzU1SnhWY3QzRm1yZ3RpaHFDTGtPZWRLSE1POUVpYldRUkNEUTNZMjV3ajZtVnBPd3FGdGVydkZBeVhjVmdZWVlHOE1ES2hmNS8xV055Z1YwNFVCblEwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0MjM2NjYwCWZpbGU6U2VreW91ci5hcHAudGFyLmd6ClViTndGMkYvMSs4ZXhDM2N1UHdSWW9JZUFmVm51YjRCL3RYeEhqQ2IyQ2luTWVDeU5GRElmQXNyK3ZuRnpPRHc4OVhBUDRiTmhkN00vcHRjSkFYd0RRPT0K",
+      "url": "https://github.com/codecraf8/sekyour-dl/releases/download/v0.7.17/Sekyour_x64.app.tar.gz"
+    },
+    "darwin-x86_64-app": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRVUZJOGVERVJQUzU1SnhWY3QzRm1yZ3RpaHFDTGtPZWRLSE1POUVpYldRUkNEUTNZMjV3ajZtVnBPd3FGdGVydkZBeVhjVmdZWVlHOE1ES2hmNS8xV055Z1YwNFVCblEwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0MjM2NjYwCWZpbGU6U2VreW91ci5hcHAudGFyLmd6ClViTndGMkYvMSs4ZXhDM2N1UHdSWW9JZUFmVm51YjRCL3RYeEhqQ2IyQ2luTWVDeU5GRElmQXNyK3ZuRnpPRHc4OVhBUDRiTmhkN00vcHRjSkFYd0RRPT0K",
+      "url": "https://github.com/codecraf8/sekyour-dl/releases/download/v0.7.17/Sekyour_x64.app.tar.gz"
+    },
+    "linux-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRVUZJOGVERVJQUzRNdVlYOVVtZ3BCT3IwWGZuVDE1VmtrT2FaemlPUUZtYXcrY2JRaWh5ZWQvL3BnaXczY2pVQlJkWUpRL09kTW5mTlh3SWtSaE1NTVZYTU03clU2WWdJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0MjM2ODM2CWZpbGU6U2VreW91cl8wLjcuMTdfYW1kNjQuQXBwSW1hZ2UKeG9oeEF4NFlJc0haYTJBMmhUQTZnakxWcWp0V1FCdkZXdEREcXBVazdyTW5NRlZnTVNqeHhZcUhmTGVCMmo0NzlDQzFUL0JXc3F1ZjVLV2NOQzJzQnc9PQo=",
+      "url": "https://github.com/codecraf8/sekyour-dl/releases/download/v0.7.17/Sekyour_0.7.17_amd64.AppImage"
+    },
+    "linux-x86_64-appimage": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRVUZJOGVERVJQUzRNdVlYOVVtZ3BCT3IwWGZuVDE1VmtrT2FaemlPUUZtYXcrY2JRaWh5ZWQvL3BnaXczY2pVQlJkWUpRL09kTW5mTlh3SWtSaE1NTVZYTU03clU2WWdJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0MjM2ODM2CWZpbGU6U2VreW91cl8wLjcuMTdfYW1kNjQuQXBwSW1hZ2UKeG9oeEF4NFlJc0haYTJBMmhUQTZnakxWcWp0V1FCdkZXdEREcXBVazdyTW5NRlZnTVNqeHhZcUhmTGVCMmo0NzlDQzFUL0JXc3F1ZjVLV2NOQzJzQnc9PQo=",
+      "url": "https://github.com/codecraf8/sekyour-dl/releases/download/v0.7.17/Sekyour_0.7.17_amd64.AppImage"
+    },
+    "windows-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRVUZJOGVERVJQUzFGODEwanZTb2VheDBHNytMbHY5STJlRjVybVJsQlZOVmM2MGRPV0tYWlJRQk9VdEo2M2dobE1QZXpENS83Q0hBVjMrSmptU3JXd0s3YkxUWlM1Q3dFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0MjM3MzM3CWZpbGU6U2VreW91cl8wLjcuMTdfeDY0LXNldHVwLmV4ZQpESkVoS1JEYnpkUmR4SndWMk5EN3NTVlk3TUpHcUlqTzRCVEE4L0l2ZTFUcHJSVmNiTE9ud25kMm1LQUJqOUJpOWx4V0E2QlAxN1l6QWNjOUxzbVRBQT09Cg==",
+      "url": "https://github.com/codecraf8/sekyour-dl/releases/download/v0.7.17/Sekyour_0.7.17_x64-setup.exe"
+    },
+    "windows-x86_64-nsis": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRVUZJOGVERVJQUzFGODEwanZTb2VheDBHNytMbHY5STJlRjVybVJsQlZOVmM2MGRPV0tYWlJRQk9VdEo2M2dobE1QZXpENS83Q0hBVjMrSmptU3JXd0s3YkxUWlM1Q3dFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0MjM3MzM3CWZpbGU6U2VreW91cl8wLjcuMTdfeDY0LXNldHVwLmV4ZQpESkVoS1JEYnpkUmR4SndWMk5EN3NTVlk3TUpHcUlqTzRCVEE4L0l2ZTFUcHJSVmNiTE9ud25kMm1LQUJqOUJpOWx4V0E2QlAxN1l6QWNjOUxzbVRBQT09Cg==",
+      "url": "https://github.com/codecraf8/sekyour-dl/releases/download/v0.7.17/Sekyour_0.7.17_x64-setup.exe"
+    }
+  }
+}
