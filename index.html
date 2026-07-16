@@ -3,22 +3,96 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Sekyour watches every connection your apps make, and lets you block what shouldn't be there." />
+<link rel="icon" href="favicon-32x32.png" />
 <title>Sekyour — Download</title>
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header>
+    <img src="favicon-32x32.png" alt="" class="mark" />
+    <span>sekyour</span>
+  </header>
+
   <main>
-    <h1>Sekyour</h1>
-    <p class="tagline">On-device network security, watching what your apps actually do.</p>
+    <h1>See what your apps<br />actually talk to.</h1>
+    <p class="subhead">
+      Sekyour watches every connection your Mac, Windows, or Linux apps
+      make — and lets you block what shouldn't be there.
+    </p>
 
     <div class="downloads">
-      <a class="btn" href="https://github.com/codecraf8/sekyour-dl/releases/latest/download/Sekyour_x64.app.tar.gz">macOS (Intel)</a>
-      <a class="btn" href="https://github.com/codecraf8/sekyour-dl/releases/latest/download/Sekyour_aarch64.app.tar.gz">macOS (Apple Silicon)</a>
-      <a class="btn" href="https://github.com/codecraf8/sekyour-dl/releases/latest">Windows</a>
-      <a class="btn" href="https://github.com/codecraf8/sekyour-dl/releases/latest">Linux</a>
+      <a class="btn" data-platform="mac-arm" href="https://github.com/codecraf8/sekyour-dl/releases/latest">
+        <span class="btn-label">macOS</span>
+        <span class="btn-sub">Apple Silicon</span>
+      </a>
+      <a class="btn" data-platform="mac-intel" href="https://github.com/codecraf8/sekyour-dl/releases/latest">
+        <span class="btn-label">macOS</span>
+        <span class="btn-sub">Intel</span>
+      </a>
+      <a class="btn" data-platform="windows" href="https://github.com/codecraf8/sekyour-dl/releases/latest">
+        <span class="btn-label">Windows</span>
+        <span class="btn-sub">.exe installer</span>
+      </a>
+      <a class="btn" data-platform="linux" href="https://github.com/codecraf8/sekyour-dl/releases/latest">
+        <span class="btn-label">Linux</span>
+        <span class="btn-sub">AppImage</span>
+      </a>
     </div>
 
-    <p class="note">All builds are signed and auto-update in place.</p>
+    <section class="ticker-frame" aria-hidden="true">
+      <p class="ticker-label">What sekyour sees</p>
+      <div class="ticker-mask">
+        <div class="ticker-track">
+          <div class="ticker-row"><span class="ticker-host">api.stripe.com</span><span class="ticker-proc">Checkout</span><span class="pill pill-ok">allowed</span></div>
+          <div class="ticker-row"><span class="ticker-host">ads.trackerhub.io</span><span class="ticker-proc">Notes</span><span class="pill pill-block">blocked</span></div>
+          <div class="ticker-row"><span class="ticker-host">cdn.github.com</span><span class="ticker-proc">Terminal</span><span class="pill pill-ok">allowed</span></div>
+          <div class="ticker-row"><span class="ticker-host">telemetry.adobe.io</span><span class="ticker-proc">Photoshop</span><span class="pill pill-block">blocked</span></div>
+          <div class="ticker-row"><span class="ticker-host">api.anthropic.com</span><span class="ticker-proc">Claude Code</span><span class="pill pill-ok">allowed</span></div>
+          <div class="ticker-row"><span class="ticker-host">collector.adjust.net</span><span class="ticker-proc">Spotify</span><span class="pill pill-block">blocked</span></div>
+          <div class="ticker-row"><span class="ticker-host">registry.npmjs.org</span><span class="ticker-proc">pnpm</span><span class="pill pill-ok">allowed</span></div>
+          <div class="ticker-row"><span class="ticker-host">metrics.appsflyer.com</span><span class="ticker-proc">Figma</span><span class="pill pill-block">blocked</span></div>
+          <!-- duplicated for a seamless loop -->
+          <div class="ticker-row"><span class="ticker-host">api.stripe.com</span><span class="ticker-proc">Checkout</span><span class="pill pill-ok">allowed</span></div>
+          <div class="ticker-row"><span class="ticker-host">ads.trackerhub.io</span><span class="ticker-proc">Notes</span><span class="pill pill-block">blocked</span></div>
+          <div class="ticker-row"><span class="ticker-host">cdn.github.com</span><span class="ticker-proc">Terminal</span><span class="pill pill-ok">allowed</span></div>
+          <div class="ticker-row"><span class="ticker-host">telemetry.adobe.io</span><span class="ticker-proc">Photoshop</span><span class="pill pill-block">blocked</span></div>
+          <div class="ticker-row"><span class="ticker-host">api.anthropic.com</span><span class="ticker-proc">Claude Code</span><span class="pill pill-ok">allowed</span></div>
+          <div class="ticker-row"><span class="ticker-host">collector.adjust.net</span><span class="ticker-proc">Spotify</span><span class="pill pill-block">blocked</span></div>
+          <div class="ticker-row"><span class="ticker-host">registry.npmjs.org</span><span class="ticker-proc">pnpm</span><span class="pill pill-ok">allowed</span></div>
+          <div class="ticker-row"><span class="ticker-host">metrics.appsflyer.com</span><span class="ticker-proc">Figma</span><span class="pill pill-block">blocked</span></div>
+        </div>
+      </div>
+    </section>
+
+    <p class="trust">Every build is signed. Sekyour updates itself in place.</p>
   </main>
+
+  <script>
+    // Windows/Linux asset names carry the version number, so they can't be
+    // linked directly without knowing the current release — resolve the
+    // real filenames once via the GitHub API and rewrite the buttons in
+    // place. macOS's app.tar.gz names are stable already but get resolved
+    // the same way for consistency; any button left unresolved just falls
+    // back to the releases page it already points to.
+    const MATCHERS = {
+      "mac-arm": /^Sekyour_aarch64\.app\.tar\.gz$/,
+      "mac-intel": /^Sekyour_x64\.app\.tar\.gz$/,
+      windows: /_x64-setup\.exe$/,
+      linux: /_amd64\.AppImage$/,
+    };
+
+    fetch("https://api.github.com/repos/codecraf8/sekyour-dl/releases/latest")
+      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+      .then((release) => {
+        for (const [platform, pattern] of Object.entries(MATCHERS)) {
+          const asset = release.assets.find((a) => pattern.test(a.name));
+          if (!asset) continue;
+          const link = document.querySelector(`[data-platform="${platform}"]`);
+          if (link) link.href = asset.browser_download_url;
+        }
+      })
+      .catch(() => {}); // buttons already point at the releases page
+  </script>
 </body>
 </html>
