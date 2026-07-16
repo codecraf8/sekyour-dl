@@ -16,10 +16,17 @@
 
   <main>
     <h1>See what your apps<br />actually talk to.</h1>
-    <p class="subhead">
-      Sekyour watches every connection your Mac, Windows, or Linux apps
-      make — and lets you block what shouldn't be there.
-    </p>
+
+    <ul class="benefits">
+      <li>Catch trackers the moment they connect, not after</li>
+      <li>Block by app, not just by domain</li>
+      <li>Runs locally — nothing you see ever leaves your machine</li>
+    </ul>
+
+    <a class="btn-primary" id="primary-download" data-platform="mac-arm" href="https://github.com/codecraf8/sekyour-dl/releases/latest">
+      Download Free
+      <span class="btn-primary-sub" id="primary-download-sub">for macOS (Apple Silicon)</span>
+    </a>
 
     <div class="downloads">
       <a class="btn" data-platform="mac-arm" href="https://github.com/codecraf8/sekyour-dl/releases/latest">
@@ -81,15 +88,40 @@
       windows: /_x64-setup\.exe$/,
       linux: /_amd64\.AppImage$/,
     };
+    const PRIMARY_LABELS = {
+      "mac-arm": "for macOS (Apple Silicon)",
+      "mac-intel": "for macOS (Intel)",
+      windows: "for Windows",
+      linux: "for Linux",
+    };
+
+    // Best-effort platform guess for which build the primary button offers
+    // first — the per-platform buttons below it cover every case, including
+    // a wrong guess. Apple Silicon vs Intel can't be detected from the
+    // browser at all, so that guess defaults to the newer chips.
+    function detectPlatform() {
+      const ua = navigator.userAgent;
+      if (/Win/.test(ua)) return "windows";
+      if (/Linux/.test(ua) && !/Android/.test(ua)) return "linux";
+      if (/Mac/.test(ua)) return "mac-arm";
+      return "mac-arm";
+    }
+
+    const platform = detectPlatform();
+    const primaryBtn = document.getElementById("primary-download");
+    const primarySub = document.getElementById("primary-download-sub");
+    primaryBtn.dataset.platform = platform;
+    primarySub.textContent = PRIMARY_LABELS[platform];
 
     fetch("https://api.github.com/repos/codecraf8/sekyour-dl/releases/latest")
       .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
       .then((release) => {
-        for (const [platform, pattern] of Object.entries(MATCHERS)) {
+        for (const [key, pattern] of Object.entries(MATCHERS)) {
           const asset = release.assets.find((a) => pattern.test(a.name));
           if (!asset) continue;
-          const link = document.querySelector(`[data-platform="${platform}"]`);
-          if (link) link.href = asset.browser_download_url;
+          document
+            .querySelectorAll(`[data-platform="${key}"]`)
+            .forEach((link) => (link.href = asset.browser_download_url));
         }
       })
       .catch(() => {}); // buttons already point at the releases page
