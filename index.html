@@ -99,7 +99,7 @@
       </div>
     </section>
 
-    <p class="trust">Every build is signed. Sekyour updates itself in place.</p>
+    <p class="trust">Free &amp; open source. Sekyour updates itself in place.</p>
 
     <div id="post-download" class="post-download" hidden>
       <p class="post-download-title">Download started</p>
@@ -177,9 +177,10 @@
 
     const PLATFORM_STEPS = {
       linux: [
-        "Open a terminal in your Downloads folder",
-        "Make it executable: <code>chmod +x Sekyour-Linux.AppImage</code>",
-        "Run: <code>./Sekyour-Linux.AppImage</code>",
+        "<strong>Recommended:</strong> run the full installer instead (daemon + app + desktop icon):",
+        "<code>curl -fsSL dl.sekyour.com/install.sh | bash</code>",
+        "Or quick-start just the AppImage: <code>chmod +x Sekyour-Linux.AppImage &amp;&amp; ./Sekyour-Linux.AppImage</code>",
+        "Note: the daemon (secd) needs Linux with eBPF — kernel 5.8+",
       ],
       "mac-arm": [
         "Double-click the .tar.gz to extract",
