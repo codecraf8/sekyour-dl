@@ -62,6 +62,18 @@
       </a>
     </div>
 
+    <div class="cli-install">
+      <p class="cli-label">Or install from terminal</p>
+      <div class="cli-cmd" id="cli-cmd-shell">
+        <code id="cli-code-shell">curl -fsSL dl.sekyour.com/install.sh | bash</code>
+        <button class="cli-copy" data-target="cli-code-shell" aria-label="Copy command">Copy</button>
+      </div>
+      <div class="cli-cmd cli-cmd-ps hidden" id="cli-cmd-ps">
+        <code id="cli-code-ps">irm dl.sekyour.com/install.ps1 | iex</code>
+        <button class="cli-copy" data-target="cli-code-ps" aria-label="Copy command">Copy</button>
+      </div>
+    </div>
+
     <section class="ticker-frame" aria-hidden="true">
       <p class="ticker-label">What sekyour sees</p>
       <div class="ticker-mask">
@@ -140,6 +152,21 @@
     primaryBtn.href = matchingSecondary.href;
     primarySub.textContent = PRIMARY_LABELS[platform];
     primaryIcon.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="${ICON_PATHS[platform]}"/></svg>`;
+
+    if (platform === "windows") {
+      document.getElementById("cli-cmd-shell").classList.add("hidden");
+      document.getElementById("cli-cmd-ps").classList.remove("hidden");
+    }
+
+    document.querySelectorAll(".cli-copy").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const code = document.getElementById(btn.dataset.target).textContent;
+        navigator.clipboard.writeText(code).then(() => {
+          btn.textContent = "Copied";
+          setTimeout(() => (btn.textContent = "Copy"), 1500);
+        });
+      });
+    });
 
     const PLATFORM_FILES = {
       "mac-arm": "Sekyour-macOS-AppleSilicon.app.tar.gz",
