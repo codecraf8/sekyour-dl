@@ -88,6 +88,13 @@
     </section>
 
     <p class="trust">Every build is signed. Sekyour updates itself in place.</p>
+
+    <div id="post-download" class="post-download" hidden>
+      <p class="post-download-title">Download started</p>
+      <p class="post-download-hint">Check your browser's download bar or your <strong>Downloads</strong> folder for:</p>
+      <code id="post-download-file" class="post-download-file"></code>
+      <div id="post-download-steps" class="post-download-steps"></div>
+    </div>
   </main>
 
   <script>
@@ -133,6 +140,50 @@
     primaryBtn.href = matchingSecondary.href;
     primarySub.textContent = PRIMARY_LABELS[platform];
     primaryIcon.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="${ICON_PATHS[platform]}"/></svg>`;
+
+    const PLATFORM_FILES = {
+      "mac-arm": "Sekyour-macOS-AppleSilicon.app.tar.gz",
+      "mac-intel": "Sekyour-macOS-Intel.app.tar.gz",
+      windows: "Sekyour-Windows.exe",
+      linux: "Sekyour-Linux.AppImage",
+    };
+
+    const PLATFORM_STEPS = {
+      linux: [
+        "Open a terminal in your Downloads folder",
+        "Make it executable: <code>chmod +x Sekyour-Linux.AppImage</code>",
+        "Run: <code>./Sekyour-Linux.AppImage</code>",
+      ],
+      "mac-arm": [
+        "Double-click the .tar.gz to extract",
+        "Drag Sekyour.app to Applications",
+        "On first launch: right-click &rarr; Open (bypasses Gatekeeper)",
+      ],
+      "mac-intel": [
+        "Double-click the .tar.gz to extract",
+        "Drag Sekyour.app to Applications",
+        "On first launch: right-click &rarr; Open (bypasses Gatekeeper)",
+      ],
+      windows: [
+        "Double-click <code>Sekyour-Windows.exe</code>",
+        "If SmartScreen warns, click <em>More info</em> &rarr; <em>Run anyway</em>",
+      ],
+    };
+
+    function showPostDownload(platformKey) {
+      const panel = document.getElementById("post-download");
+      document.getElementById("post-download-file").textContent = PLATFORM_FILES[platformKey];
+      const steps = PLATFORM_STEPS[platformKey] || [];
+      document.getElementById("post-download-steps").innerHTML = steps
+        .map((s, i) => `<p class="post-download-step"><span class="step-num">${i + 1}</span> ${s}</p>`)
+        .join("");
+      panel.hidden = false;
+      panel.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    document.querySelectorAll("[data-platform]").forEach((link) => {
+      link.addEventListener("click", () => showPostDownload(link.dataset.platform));
+    });
   </script>
 </body>
 </html>

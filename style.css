@@ -325,3 +325,73 @@ h1 {
   font-size: 0.8rem;
   margin: 0;
 }
+
+.post-download {
+  margin: 1.5rem auto 0;
+  max-width: 30rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid color-mix(in oklch, var(--accent) 30%, var(--surface-line));
+  border-radius: 0.75rem;
+  background: color-mix(in oklch, var(--accent) 5%, var(--surface));
+  text-align: left;
+}
+
+.post-download-title {
+  margin: 0 0 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.post-download-hint {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.post-download-file {
+  display: block;
+  margin: 0 0 0.75rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.4rem;
+  background: var(--bg);
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--fg);
+}
+
+.post-download-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin: 0.35rem 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--fg);
+}
+
+.post-download-step code {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  padding: 0.1rem 0.35rem;
+  border-radius: 0.3rem;
+  background: var(--bg);
+  color: var(--accent);
+}
+
+.step-num {
+  flex-shrink: 0;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
